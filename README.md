@@ -36,13 +36,13 @@ pt.cls = with(dat.cluster, table(id, clust)) ## count number of day clusters per
     - e.g., for a participant with record AAABBBB, the proportions are 
                                             3/7 for A; 4/7 for B; 0/7 for C and D
 ```r
-pt.cls2 <- t(apply(pt.cls, 1, function(x) {x / sum(x)})) ## derive proportions
+pt.cls2 = t(apply(pt.cls, 1, function(x) {x / sum(x)})) ## derive proportions
 ```
 
 - Run hierarchical clustering (hclust fn in R) on proportion of days
 
 ```r
-hc <- hclust(dist(pt.cls2), "complete") ## hierarchical clustering to cluster participants
+hc = hclust(dist(pt.cls2), "complete") ## hierarchical clustering to cluster participants
 ```
 - Use silhouette criteria to select the optimal # of clusters
 - Extract participant sedentary patterns
